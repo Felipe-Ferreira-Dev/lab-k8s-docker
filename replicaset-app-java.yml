@@ -20,8 +20,8 @@ spec:
                   key: USER
             - name: PASSWORD
               valueFrom:
-                configMapKeyRef:
-                  name: mysql-configmap
+                secretKeyRef:
+                  name: mysql-secret
                   key: PASSWORD
             - name: DATABASE_URL
               valueFrom:
