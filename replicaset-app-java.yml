@@ -14,12 +14,20 @@ spec:
           image: ffaneto/crud-java-login:v0.0.1
           env:
             - name: USER
-              value: root
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap
+                  key: USER
             - name: PASSWORD
-              value: password_mysql
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap
+                  key: PASSWORD
             - name: DATABASE_URL
-              value: mysql://mysql:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC
-              # value: mysql://10.111.41.255:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-configmap
+                  key: DATABASE_URL
           ports:
             - containerPort: 8080
   replicas: 2
