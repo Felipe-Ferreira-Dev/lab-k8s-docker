@@ -1,9 +1,13 @@
 apiVersion: v1
-kind: Pod
+kind: ReplicaSet
 metadata:
-  name: pod-app-javabd
-  labels:
-    app: pod-app-javadb
+  name: java-replicaset
+spec:
+  template:
+    metadata:
+      name: pod-app-javadb
+      labels:
+        app: pod-app-javadb
 spec:
   containers:
     - name: container-pod-app-javadb
