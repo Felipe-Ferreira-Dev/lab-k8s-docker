@@ -18,4 +18,8 @@ spec:
           # value: mysql://10.111.41.255:3306/SpringWebYoutubeTest?useTimezone=true&serverTimezone=UTC
       ports:
         - containerPort: 8080
-        
+replicas: 2
+selector:
+  matchLabels:
+    app: pod-app-javadb  
+
